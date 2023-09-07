@@ -29,7 +29,7 @@ const Content = () => {
                 <div className="content_iconBoder group flex items-center justify-center w-[126px]  py-[14px] grap-[10px] rounded-[6px] bg-[#151657] hover:bg-[#b2b9ef] ease-in-out duration-300 cursor-pointer">
                     <div className="flex flex-col justify-center items-center group-hover:scale-90 ease-in-out duration-300">
                         <img src={organ} alt="organ" className="rounded-[5px]" />
-                        <p className="text-white text-[12px] mt-2">Organization</p>
+                        <p className="text-white text-[12px] mt-2">Organizationn</p>
                     </div>
                 </div>
 
