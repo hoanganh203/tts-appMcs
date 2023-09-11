@@ -3,7 +3,10 @@ import { createSlice } from "@reduxjs/toolkit"
 
 
 const initialState = {
-    status: false
+    statusMenu: false,
+    textStatus: true,
+    statusItemMenu: false,
+    actitMenu: ""
 }
 
 
@@ -13,12 +16,21 @@ const appMcs = createSlice({
     initialState,
     reducers: {
         statusApp: (state, action) => {
-            console.log(action.payload);
-            state.status = action.payload
+            state.statusMenu = action.payload
+        },
+        statusApptext: (state, action) => {
+            state.textStatus = action.payload
+        }
+        ,
+        statusAppItemMenu: (state, action) => {
+            state.statusItemMenu = action.payload
+        },
+        actitAppItemMenu: (state, action) => {
+            state.actitMenu = action.payload
         }
     }
 
 })
 
-export const { statusApp } = appMcs.actions
+export const { statusApp, statusApptext, statusAppItemMenu, actitAppItemMenu } = appMcs.actions
 export const appMcsReducer = appMcs.reducer

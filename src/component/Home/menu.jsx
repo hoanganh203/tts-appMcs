@@ -1,73 +1,85 @@
 import React, { useState } from 'react'
-import { Menu, menuAsToolbarBehavior, Button } from "@fluentui/react-northstar"
+import { Menu, menuAsToolbarBehavior, Button, Flex } from "@fluentui/react-northstar"
 import { AlertOn, Chat, ApprovalsApp, CalendarAgenda, Call, LauncherSettings, MoreHorizontal, AddSquare, Notepad, ChevronDoubleLeft } from "@styled-icons/fluentui-system-regular"
+import { useDispatch, useSelector } from 'react-redux'
+import { statusApp, statusAppItemMenu } from '../../redux/status'
+import ItemMenu from './component/itemMenu'
+import ContentItemMenu from './component/contentItemMenu'
+import HeaderItemMenu from './component/headerItemMenu'
+import { Link } from 'react-router-dom'
 
 
 
 const MenuHome = () => {
-
-    const [sider, setSider] = useState()
+    const dispatch = useDispatch()
+    const { statusMenu, actitMenu } = useSelector(state => state.appMcs)
     const items = [
         {
-            icon: <AlertOn className='iconMenu w-[24px] mx-[29px] h-[24px] ' />,
             key: 'Notifications',
-            content: !sider && <Button className="text-xs"> Thông báo</Button>,
+            content: <Flex className={actitMenu === "Thông báo" ? "actitMenu" : ""} onClick={() => onHandleSumit("", <HeaderItemMenu title={"Thông báo"} />)}><AlertOn className='iconMenu w-[24px] h-[24px] ' /><Button className="text-xs">Thông báo</Button></Flex>,
         },
         {
-            icon: <Chat className='iconMenu w-[24px] h-[24px] mx-[29px]' />,
             key: 'Chat',
-            content: !sider && <Button className="text-xs">Thảo luận</Button>,
+            content: <Flex className={actitMenu === "Thảo luận" ? "actitMenu" : ""} onClick={() => onHandleSumit("", <HeaderItemMenu title={"Thảo luận"} />)} ><Chat className='iconMenu w-[24px] h-[24px] ' /><Button className="text-xs">Thảo luận</Button></Flex>,
         },
         {
-            icon: <ApprovalsApp className='iconMenu w-[24px] h-[24px] mx-[29px]' />,
             key: 'ApprovalsApp',
-            content: !sider && <Button className="text-xs ">Quy trình</Button>,
+            content: <Flex className={actitMenu === "Quy trình" ? "actitMenu" : ""} onClick={() => onHandleSumit("", <HeaderItemMenu title={"Quy trình"} />)}><ApprovalsApp className='iconMenu w-[24px] h-[24px] ' /><Button className="text-xs ">Quy trình</Button></Flex>,
 
         },
         {
-            icon: <CalendarAgenda className='iconMenu w-[24px] h-[24px] mx-[29px]' />,
             key: 'CalendarAgenda',
-            content: !sider && <Button className="text-xs ">Công việc</Button>,
+            content: <Flex className={actitMenu === "Công việc" ? "actitMenu" : ""} onClick={() => onHandleSumit("", <HeaderItemMenu title={"Công việc"} />)}><CalendarAgenda className='iconMenu w-[24px] h-[24px] ' /><Button className="text-xs ">Công việc</Button></Flex>,
         },
         {
-            icon: <Call className='iconMenu w-[24px] h-[24px] mx-[29px] ' />,
             key: 'Call',
-            content: !sider && <Button className="text-xs ">Gọi</Button>,
+            content: <Flex className={actitMenu === "Gọi" ? "actitMenu" : ""} onClick={() => onHandleSumit("", <HeaderItemMenu title={"Gọi"} />)}><Call className='iconMenu w-[24px] h-[24px] ' /><br /><Button className="text-xs ">Gọi</Button></Flex>,
 
         },
         {
-            icon: <Notepad className='iconMenu w-[24px] h-[24px] mx-[29px]' />,
             key: 'Booking',
-            content: !sider && <Button className="text-xs ">Booking</Button>,
+            content: <Flex className={actitMenu === "Booking" ? "actitMenu" : ""} onClick={() => onHandleSumit("", <HeaderItemMenu title={"Booking"} />)}><Notepad className='iconMenu w-[24px] h-[24px] ' /><br /><Button className="text-xs ">Booking</Button></Flex>,
 
         },
         {
-            icon: <LauncherSettings className='iconMenu w-[24px] h-[24px] mx-[29px]' />,
+
             key: 'Setting',
-            content: !sider && <Button className="text-xs ">Cài đặt</Button>,
-
+            content: <Flex className={actitMenu === "Setting" ? "actitMenu" : ""} onClick={() => onHandleSumit(<ContentItemMenu />, <HeaderItemMenu title={"Setting"} />)}><LauncherSettings className='iconMenu w-[24px] h-[24px] ' /><br /><Button className="text-xs "> Cài đặt</Button></Flex>,
         },
         {
-            icon: (<MoreHorizontal className='iconMenu w-[24px] h-[24px] mx-[29px]' />),
+            icon: (<MoreHorizontal className='iconMenu w-[24px] h-[24px] ' />),
             key: 'MoreHorizontal',
         },
         {
-            icon: (<AddSquare className='iconMenu w-[24px] h-[24px] mx-[29px]' />),
             key: 'AddSquare',
+            content: <Link to={"/app-name"} ><AddSquare className='iconMenu w-[24px] h-[24px] ' /><br /><Button className="text-xs ">Apps</Button></Link >,
+
         }
     ]
-    return (<div className={sider ? "fixed" : ""}>
-        <div className='flex  sm:hidden md:relative sm:relative 2xl:relative z-50 md:block xl:block 2xl:block 2xl:left-0 md:left-0 xl:left-0 -left-10 h-screen bg-[#E4EDF3] ease-in-out duration-300'>
+
+
+    const [content, setContent] = useState(null);
+    const [header, setHeader] = useState(null);
+    const onHandleSumit = (content, header) => {
+        dispatch(statusAppItemMenu(true))
+        setContent(content);
+        setHeader(header);
+    }
+
+
+    return (<div className={statusMenu ? "fixed border-solid border-[4px] border-r-[#fff] border-t-transparent border-l-transparent border-b-transparent" : "fixed border-solid border-[4px] border-r-[#fff] border-t-transparent border-r-transparent border-l-transparent"}>
+        <div className='flex sm:hidden md:relative sm:relative 2xl:relative z-50 md:block xl:block 2xl:block 2xl:left-0 md:left-0 xl:left-0 -left-10 h-screen bg-[#E4EDF3] ease-in-out duration-300'>
+            <ItemMenu content={content} header={header} />
             <Menu
                 defaultActiveIndex={0}
                 items={items}
                 iconOnly
                 accessibility={menuAsToolbarBehavior}
                 aria-label="Compose Editor"
-                className={sider ? 'Opcity1 w-20 text-[#616161] text-center ease-in-out duration-300 bg-[#E4EDF3]' : 'Opcity2 w-48 text-[#616161]  ease-in-out duration-300 bg-[#E4EDF3] h-screen'}
+                className='menu w-[68px] text-[#616161] ease-in-out text-center duration-300 bg-[#E4EDF3]'
             />
-            <Button className='w-5 h-5 text-[#616161] z-10 absolute top-0 right-0' onClick={() => setSider(!sider)}><ChevronDoubleLeft className={sider ? 'rotate-180 ease-in-out duration-300' : 'rotate-0 ease-in-out duration-300'} /></Button>
         </div >
+
     </div>)
 }
 export default MenuHome

@@ -11,7 +11,6 @@
   align-items: center;
   gap: 4px;
   margin: 0 auto;
-  margin-top: 50px;
 }
 
 .app {
@@ -118,38 +117,27 @@
   box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.14), 0px 0px 2px 0px rgba(0, 0, 0, 0.12);
 }
 
-.Opcity1 {
-  animation: opacityCss1 1s both;
+.menu {
+  animation: opacityCss1 0.5s both;
 }
 
-.Opcity2 {
-  animation: opacityCss2 1s both;
-}
 
 @keyframes opacityCss1 {
   0% {
     opacity: 0;
+    margin-left: -100px;
   }
 
   100% {
     opacity: 1;
-  }
-}
-
-@keyframes opacityCss2 {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
+    margin-left: 0px;
   }
 }
 
 /* menu li */
 
 .ui-menu__itemwrapper {
-  padding: 10px 0px;
+  padding: 5px 0px;
   animation: all 0.2s
 }
 
@@ -201,12 +189,18 @@
 
 /* content */
 
+.actitMenu {
+  border-left: 4px solid #5B5FC7;
+  color: #5B5FC7;
+  transition: all 0.2s ease-in-out;
+}
+
 .content_iconBoder {
   border-top: 1px solid rgba(252, 252, 255, 0.24);
   border-left: 1px solid rgba(255, 255, 255, 0.24);
 }
 
-.text {
+.runText {
   overflow: hidden;
   white-space: nowrap;
   border-right: 2px solid #fff;
@@ -260,4 +254,29 @@
     width: 100px;
     margin-right: 10px;
   }
+}
+
+
+
+
+
+::-webkit-scrollbar {
+  width: 2px;
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 10px;
+  -webkit-box-shadow: none;
+
+
+}
+
+::-webkit-scrollbar-thumb {
+  background: gray;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: gray;
 }
