@@ -1,10 +1,10 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { appMcsReducer } from "./status";
+import  appMcsSlice  from "./status";
 
 
 const store = configureStore({
     reducer: {
-        appMcs: appMcsReducer
+        appMcs: appMcsSlice
     }
 })
 

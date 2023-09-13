@@ -1,37 +1,74 @@
 import React from 'react'
+import { Grid, Segment } from "@fluentui/react-northstar"
+import HeaderLayout from './component/header'
 import { Outlet } from 'react-router-dom'
-import { Grid, Menu, Segment, Flex } from "@fluentui/react-northstar"
-import MenuHome from '../Home/menu'
-import { useSelector } from 'react-redux'
-import HeaderHome from '../Home/headerHome'
+import MenuLayout from './component/menu'
+import ItemMenulayout from './component/component/itemmenu'
+
 
 
 const Layout = () => {
-    const { statusItemMenu } = useSelector(state => state.appMcs)
-
     return (
-        <Grid className='w-[100%]'>
+        <Grid columns="repeat(20, 1fr)" rows="48px 100vh" className='layout'>
             <Segment
-                content={<HeaderHome />}
+                content={<HeaderLayout />}
                 inverted
-                className='flex-1 '
+                styles={{
+                    gridColumn: 'span 20',
+                    backgroundColor: "#E5EDF3",
+                    height: "48px",
+                    margin: "0",
+                    padding: "0",
+                    zIndex: "50",
+                    width: "1440px",
+                    position: "fixed",
+                }}
             />
-            <Flex className='flex'>
-                <Segment
-                    content={<MenuHome />}
-                    inverted
-                    className='bg-[#E4EDF3] mt-[44px] h-screen md:relative absolute z-50 hidden sm:hidden md:block xl:block 2xl:block ease-in-out duration-300'
-                />
-
-                <Segment
-                    color="green"
-                    content={<Outlet />}
-                    inverted
-                    className={statusItemMenu ? 'flex-1 mt-12 z-0 bg-[#F5F5F5] ease-in-out duration-500 xl:ml-[395px]' : 'flex-1 mt-12 z-0 bg-[#F5F5F5] xl:ml-[72px] -ml-[12px] ease-in-out duration-300'}
-                />
-            </Flex>
+            <Segment
+                content={<MenuLayout />}
+                inverted
+                styles={{
+                    gridColumn: 'span 1',
+                    margin: "0",
+                    padding: "0",
+                    width: "68px",
+                    flex: "1 1 0%",
+                    marginLeft: "1px",
+                    position: "fixed",
+                    top: "48px",
+                    zIndex: "50",
+                }}
+            />
+            <Segment
+                content={<ItemMenulayout />}
+                inverted
+                styles={{
+                    gridColumn: 'span 4',
+                    width: "320px",
+                    margin: "0",
+                    padding: "0",
+                    position: "fixed",
+                    height: "100vh",
+                    overflowY: "auto",
+                    marginLeft: "69.7px",
+                    backgroundColor: "#ECF1F5",
+                    zIndex: "50",
+                    marginTop: "60px"
+                }}
+            />
+            <Segment
+                inverted
+                content={<Outlet />}
+                styles={{
+                    gridColumn: 'span 20',
+                    marginTop: "48px",
+                    marginLeft: "392px",
+                    background: "#F5F5F5",
+                    width: "1052px",
+                    height: "762px",
+                }}
+            />
         </Grid>
-
     )
 }
 
