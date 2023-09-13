@@ -4,7 +4,7 @@ import { Flex, Image, Text, Button } from "@fluentui/react-northstar"
 
 
 const Task = (items) => {
-    const { image, name, title, banner, content } = items.items
+    const { key, image, name, title, banner, content } = items.items
 
     const textMin = (text) => {
         let dataText = text.substring(0, 90)
@@ -32,7 +32,7 @@ const Task = (items) => {
                 <Text className="container_task--list--content--text-3" content={textMin(content)} />
             </Flex>
             <Flex className="container_task--list--footer">
-                <Button className="container_task--list--footer-button">Xem thêm</Button>
+                <Button className="container_task--list--footer-button" onClick={() => console.log(key)}>Xem thêm</Button>
             </Flex>
         </Flex>
     )

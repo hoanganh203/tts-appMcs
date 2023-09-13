@@ -12,7 +12,9 @@
 }
 
 .ij {
-  border-left: 4px solid rgb(91, 95, 199) !important;
+  color: #5B5FC7 !important;
+  border-left: 4px solid #5B5FC7 !important;
+  border-radius: 4px;
 }
 
 /* .container {

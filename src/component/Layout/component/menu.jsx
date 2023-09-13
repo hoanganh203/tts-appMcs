@@ -1,26 +1,26 @@
 import React from 'react'
 import { Menu, menuAsToolbarBehavior, Text } from '@fluentui/react-northstar'
-import { AlertOn, Chat, ApprovalsApp, CalendarAgenda, Call, LauncherSettings, MoreHorizontal, AddSquare, Notepad, ChevronDoubleLeft } from "@styled-icons/fluentui-system-regular"
+import { AlertOn, Chat, ApprovalsApp, CalendarAgenda, Call, Scan, MoreHorizontal, AddSquare, Document, ChevronDoubleLeft } from "@styled-icons/fluentui-system-regular"
 const items = [
     {
         icon: (
             <AlertOn className='menulayout_icon' />
         ),
-        key: 'AlertOn',
+        key: '1',
         content: <Text>Thông báo</Text>
     },
     {
         icon: (
             <Chat />
         ),
-        key: 'Chat',
+        key: '2',
         content: <Text>Thảo luận</Text>
     },
     {
         icon: (
             <ApprovalsApp />
         ),
-        key: 'ApprovalsApp',
+        key: '3',
         content: <Text>Quy trình</Text>
 
     },
@@ -28,7 +28,7 @@ const items = [
         icon: (
             <CalendarAgenda />
         ),
-        key: 'CalendarAgenda',
+        key: '4',
         content: <Text>Công việc</Text>
 
     },
@@ -36,23 +36,23 @@ const items = [
         icon: (
             <Call />
         ),
-        key: 'Call',
+        key: '5',
         content: <Text>Request</Text>
 
     },
     {
         icon: (
-            <Notepad />
+            <Document />
         ),
-        key: 'Notepad',
+        key: '6',
         content: <Text>booking</Text>
 
     },
     {
         icon: (
-            <LauncherSettings />
+            <Scan />
         ),
-        key: 'LauncherSettings',
+        key: '7',
         content: <Text>Setting</Text>
 
     },
@@ -60,7 +60,7 @@ const items = [
         icon: (
             <MoreHorizontal style={{ marginLeft: "-10px" }} />
         ),
-        key: 'menuButton2',
+        key: '8',
         'aria-label': 'More options',
         indicator: false,
         menu: {
@@ -99,7 +99,7 @@ const items = [
         icon: (
             <AddSquare />
         ),
-        key: 'AddSquare',
+        key: '9',
         content: <Text>Apps</Text>
 
     },

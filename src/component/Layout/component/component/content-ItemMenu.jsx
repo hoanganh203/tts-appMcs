@@ -96,6 +96,7 @@ const ContentItemMenu = () => {
                             title: <Button content={"Xem thêm"} style={{
                                 color: "#5D61C8",
                                 backgroundColor: "#ECF1F5",
+                                border: "none"
                             }} />,
                         }
                     ]
