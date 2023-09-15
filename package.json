@@ -17,6 +17,7 @@
     "@fluentui/react-northstar": "^0.66.5",
     "@fluentui/svg-icons": "^1.1.212",
     "@reduxjs/toolkit": "^1.9.5",
+    "@styled-icons/fluentui-system-filled": "^10.47.0",
     "@styled-icons/fluentui-system-regular": "^10.47.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

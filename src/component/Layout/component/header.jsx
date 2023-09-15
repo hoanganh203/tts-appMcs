@@ -3,7 +3,6 @@
 import React from 'react'
 import { Flex, Image, Input, Button } from "@fluentui/react-northstar"
 import { ChevronLeft, ChevronRight, MoreHorizontal, Dismiss, CheckboxUnchecked, LineHorizontal1, Search, List } from "@styled-icons/fluentui-system-regular"
-import "../layout.css"
 import { SearchIcon } from '@fluentui/react-icons-northstar'
 const HeaderLayout = () => {
     return (

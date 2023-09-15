@@ -10,7 +10,7 @@ import cauhinh from "../../../assets/cauhinh.jpg"
 
 const Banner = () => {
     return (<>
-        <Image src={banner} alt="banner" />
+        <Image src={banner} alt="banner" style={{ width: "1055px" }} />
         <Flex className="container_banner">
             <Flex className="container_banner--text">
                 <h1>Nhà quản trị tài ba <br /> <Text className="container_banner--text--item">Chuyển đổi số toàn diện</Text></h1>

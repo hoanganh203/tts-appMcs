@@ -1,10 +1,12 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Tree, Image, Flex, Text, Button } from '@fluentui/react-northstar'
 import home from "../../../../assets/home.jpg"
 import organ from "../../../../assets/organ.jpg"
 import user from "../../../../assets/user.jpg"
 import danhmuc from "../../../../assets/danhmuc.jpg"
 import cauhinh from "../../../../assets/cauhinh.jpg"
+import { TriangleDown, TriangleRight } from "@styled-icons/fluentui-system-filled"
+
 const ContentItemMenu = () => {
     const itemComponent = (images, title, text) => (
         <Flex className='item_component'>
@@ -96,16 +98,26 @@ const ContentItemMenu = () => {
                             title: <Button content={"Xem thêm"} style={{
                                 color: "#5D61C8",
                                 backgroundColor: "#ECF1F5",
-                                border: "none"
+                                border: "none",
+                                marginLeft: "10px"
                             }} />,
                         }
                     ]
                 },
+
             ],
         },
     ]
+
+    const titleRenderer = (Component, { content, expanded, open, hasSubtree, ...restProps }) => {
+        return (
+            <Component expanded={expanded} hasSubtree={hasSubtree} {...restProps}>
+                {!hasSubtree ? null : expanded ? <TriangleDown className='itemMenu_icon' /> : <TriangleRight className='itemMenu_icon' />}
+                {content}
+            </Component>)
+    }
     return (
-        <Tree aria-label="default" items={items} className='itemMenu' />
+        <Tree aria-label="default" items={items} className='itemMenu' renderItemTitle={titleRenderer} />
     )
 }
 

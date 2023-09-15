@@ -1,6 +1,6 @@
 import React from 'react'
 import { Menu, menuAsToolbarBehavior, Text } from '@fluentui/react-northstar'
-import { AlertOn, Chat, ApprovalsApp, CalendarAgenda, Call, Scan, MoreHorizontal, AddSquare, Document, ChevronDoubleLeft } from "@styled-icons/fluentui-system-regular"
+import { AlertOn, Chat, ApprovalsApp, CalendarAgenda, Call, Settings, MoreHorizontal, AddSquare, Document, ChevronDoubleLeft } from "@styled-icons/fluentui-system-regular"
 const items = [
     {
         icon: (
@@ -50,7 +50,7 @@ const items = [
     },
     {
         icon: (
-            <Scan />
+            <Settings />
         ),
         key: '7',
         content: <Text>Setting</Text>
@@ -112,7 +112,7 @@ const Menulayout = () => (
         accessibility={menuAsToolbarBehavior}
         aria-label="Compose Editor"
         vertical
-        className='menulayout'
+        className='menu'
     />
 )
 export default Menulayout
