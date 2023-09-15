@@ -3,7 +3,6 @@
 import React from 'react'
 import { Flex, Image, Input, Button } from "@fluentui/react-northstar"
 import { ChevronLeft, ChevronRight, MoreHorizontal, Dismiss, CheckboxUnchecked, LineHorizontal1, Search, List } from "@styled-icons/fluentui-system-regular"
-import { SearchIcon } from '@fluentui/react-icons-northstar'
 const HeaderLayout = () => {
     return (
         <Flex className='header'>
@@ -17,7 +16,7 @@ const HeaderLayout = () => {
                     <Button icon={<ChevronLeft className='header_search--arrow--item' />} />
                     <Button icon={<ChevronRight className='header_search--arrow--item' />} />
                 </Flex>
-                <Input icon={<SearchIcon className='header_search--icon' style={{ color: "#616161 !important" }} />} placeholder="Search..." iconPosition="start" className='header_search--input' />
+                <Input icon={<Search className='header_search--icon' style={{ color: "#616161 !important" }} />} placeholder="Search..." iconPosition="start" className='header_search--input' />
             </Flex>
             <Flex className='header_tool'>
                 <Button icon={<MoreHorizontal className='header_tool--icon' />} className='header_tool--item' />

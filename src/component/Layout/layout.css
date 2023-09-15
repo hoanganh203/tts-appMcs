@@ -36,12 +36,12 @@
 
 .layout_content {
     position: relative;
-    margin-left: 388px;
+    margin-left: 389px;
     padding-left: 20px;
     background: #F5F5F5;
     margin-top: 48px;
     width: calc(100% - 68px - 320px);
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) !important;
+    box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.25) !important;
 }
 
 .layout_header .header {
@@ -90,10 +90,10 @@
     height: 20px;
 }
 
-.header_search .header_search--icon svg {
+.header_search .header_search--icon {
     width: 20px;
     height: 20px;
-    color: #cb2323 !important;
+    color: #616161 !important;
 }
 
 .header_search input {
@@ -197,11 +197,18 @@
 
 /* =========ItemMenu=============== */
 
+.itemMenu_content .itemMenu {
+    height: 700px;
+}
+
+
+
 .itemMenu {
     position: relative;
     width: 100%;
     background: #ECF1F5;
     height: 100vh;
+    box-shadow: 0px 0px 10px 0px #ccc !important;
 }
 
 .itemMenu_header {
@@ -212,11 +219,13 @@
 
 
 
+
 .itemMenu_content {
     position: relative;
     width: 100%;
     top: 25px;
     overflow-y: auto;
+    padding-bottom: 40px;
     height: 520px;
 }
 
@@ -332,9 +341,10 @@
     align-items: center;
     border-top: 3px solid #E0E0E0;
     position: fixed;
-    width: 320px;
+    width: 270px;
     height: 58px;
-    bottom: 0px;
+    margin-left: 25px;
+    bottom: 0;
     background: #ECF1F5;
 
 }

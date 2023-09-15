@@ -117,7 +117,7 @@ const ContentItemMenu = () => {
             </Component>)
     }
     return (
-        <Tree aria-label="default" items={items} className='itemMenu' renderItemTitle={titleRenderer} />
+        <Tree aria-label="default" items={items} className='itemMenu_content--item' renderItemTitle={titleRenderer} />
     )
 }
 
